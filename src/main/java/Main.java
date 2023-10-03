@@ -12,21 +12,21 @@ public class Main {
     public static void main(String[] args) throws Exception {
          PDDocument pdDocument = new PDDocument();
 
-        JFrame frame = new JFrame("So Converter");
+        JFrame frame = new JFrame("Converter");
         frame.setSize(400, 200);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
 
-        File pdfFile = new File("CTBReverse.pdf");
+        File pdfFile = new File("filename.pdf");
 
         pdDocument =pdDocument.load(pdfFile);
         System.out.println(pdDocument.getNumberOfPages());
 
         PDFTextStripperByArea stripper = new PDFTextStripperByArea();
 
-        stripper.addRegion("oko", new Rectangle(50,50,50,50));
+        stripper.addRegion("placeholder", new Rectangle(50,50,50,50));
         stripper.extractRegions(pdDocument.getPage(0));
-        System.out.println(stripper.getTextForRegion("oko"));
+        System.out.println(stripper.getTextForRegion("placeholder"));
 
 
 
